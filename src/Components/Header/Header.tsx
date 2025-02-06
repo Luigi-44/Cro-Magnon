@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import "./Header.css";
-import CroMagnon from "../assets/CroMagnon.webp";
+import CroMagnon from "../../assets/CroMagnon.webp";
 
 function Header() {
   return (
