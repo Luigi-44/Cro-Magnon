@@ -17,7 +17,7 @@ function Filtre({ filtreActif, setFiltreActif }) {
 
   return (
     <div className="filtre">
-      <h2>Filtrer par type de parcours</h2>
+      <h2>Nos grottes à disposition</h2>
       <div className="filtre__conteneur">
         {filtres.map((filtre) => (
           <button
