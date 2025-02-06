@@ -1,24 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import './Header.css'
+import CroMagnon from "../assets/CroMagnon.webp"
 
 function Header() {
-  const navigate = useNavigate();
-
-  function goToAccueil() {
-    navigate('/');
-  }
-
-  function goToApropos() {
-    navigate('/apropos');
-  }
-
+  
   return (
     <header>
-      <nav>
-        <button type='button' onClick={goToAccueil}>Accueil</button>
-        <button type='button' onClick={goToApropos}>À propos</button>
-      </nav>
+      <div className="full-header">
+        <h2>Bienvenue au Cromagnon Lodge!</h2>
+      <div className='logo-header'>
+        <img src={CroMagnon}/>
+      </div>
+      <h2>Trouvez votre Refuge</h2>
+      </div>
     </header>
+    
   );
 }
 
