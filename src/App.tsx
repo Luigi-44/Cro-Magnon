@@ -3,6 +3,7 @@ import "./App.css";
 import Filtre from "./Components/Filtre/Filtre";
 import Tableux from "./Components/Tableaux/Tableux";
 import { useState } from "react";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const [filtreActif, setFiltreActif] = useState("All");
@@ -11,6 +12,7 @@ function App() {
       <Outlet />
       <Filtre filtreActif={filtreActif} setFiltreActif={setFiltreActif} />
       <Tableux filtreActif={filtreActif} />
+      <Footer />
     </div>
   );
 }
