@@ -1,9 +1,10 @@
 :root {
-    --primary-title: #92491f;
-    --secondary-color: #9a7353; 
-    --font-size: 16px;
-    --text-color: #dedad1;
+  --primary-title: #92491f;
+  --secondary-color: #9a7353;
+  --font-size: 16px;
+  --text-color: #dedad1;
 }
-*{
-    margin: 0;
+
+* {
+  margin: 0;
 }
