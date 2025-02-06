@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Forta";
+  src: url("../assets/Forta.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Forta", sans-serif;
+}
+
+.tableaux {
+  padding: 20px;
+  background-color: var(--secondary-color);
+
+  .card {
+    display: grid;
+    grid-template-columns: repeat(6, 18rem);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .logement {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background: #ffffff8c;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      margin-top: -20px;
+    }
+
+    .logement-image {
+      position: relative;
+      width: 100%;
+      height: 270px;
+      overflow: hidden;
+      border-radius: 8px;
+
+      img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+      }
+    }
+
+    .favori-btn {
+      position: relative;
+      left: 14rem;
+      top: 2rem;
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      z-index: 1;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 35%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+  }
+
+  .nav-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .logement:hover .nav-btn {
+    opacity: 1;
+  }
+}

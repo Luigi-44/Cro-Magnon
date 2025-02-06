@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
-import Footer from "./Components/Footer";
 import "./App.css";
-import Header from "./Components/Header";
 import Filtre from "./Components/Filtre";
+import Tableux from "./Components/Tableux";
+import { useState } from "react";
 
 function App() {
+  const [filtreActif, setFiltreActif] = useState("All");
   return (
     <div>
-      <Header />
       <Outlet />
-      <Footer />
-      <Filtre />
+      <Filtre filtreActif={filtreActif} setFiltreActif={setFiltreActif} />
+      <Tableux filtreActif={filtreActif} />
     </div>
   );
 }

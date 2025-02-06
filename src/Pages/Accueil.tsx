@@ -1,10 +1,7 @@
+import Header from "../Components/Header";
+
 function Accueil() {
-  
-  return (
-    <div>
-      <h1>Bienvenue sur la page d'Accueil</h1>
-    </div>
-  );
+  return <Header />;
 }
 
 export default Accueil;
