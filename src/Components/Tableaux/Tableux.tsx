@@ -287,6 +287,16 @@ function Tableaux({ filtreActif }) {
     },
   ];
 
+  useEffect(() => {
+    fetch("")
+      .then((response) => response.json())
+      .then((data: AccessoryType[]) => {
+        console.info(data);
+        setAccessories(data);
+      })
+      .catch((error) => console.error("Erreur API :", error));
+  }, []);
+
   const [selectedLogement, setSelectedLogement] = useState(null);
 
   const openModal = (logement) => {
