@@ -6,7 +6,7 @@ import grotte2 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoq
 import grotte3 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoque_de_lge_de_Pierre_sc_a9603cdd-d98e-440a-898c-993c86499d22_2.png";
 import grotte4 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoque_de_lge_de_Pierre_sc_a9603cdd-d98e-440a-898c-993c86499d22_3.png";
 
-function LogementCard({ logement, openModal }) {
+function LogementCard({ logement, openModal}) {
   const images = [logement.img, logement.img2, logement.img3, logement.img4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -63,7 +63,7 @@ function LogementCard({ logement, openModal }) {
   );
 }
 
-function Tableaux({ filtreActif }) {
+function Tableaux({ filtreActif, }) {
   const logements = [
     {
       id: 1,
