@@ -1,26 +1,28 @@
 import "./Tableaux.css";
 import { useState, useEffect } from "react";
+import Modal from "../Modal/Modal";
 import grotte1 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoque_de_lge_de_Pierre_sc_a9603cdd-d98e-440a-898c-993c86499d22_0.png";
 import grotte2 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoque_de_lge_de_Pierre_sc_a9603cdd-d98e-440a-898c-993c86499d22_1.png";
 import grotte3 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoque_de_lge_de_Pierre_sc_a9603cdd-d98e-440a-898c-993c86499d22_2.png";
 import grotte4 from "../../assets/grotte/u8772914434_Un_logement_en_grotte__lpoque_de_lge_de_Pierre_sc_a9603cdd-d98e-440a-898c-993c86499d22_3.png";
 
-function LogementCard({ logement }) {
+function LogementCard({ logement, openModal }) {
   const images = [logement.img, logement.img2, logement.img3, logement.img4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const favorisStockés = JSON.parse(localStorage.getItem("favoris")) || [];
   const [favori, setFavori] = useState(favorisStockés.includes(logement.id));
 
-  const toggleFavori = () => {
+  const toggleFavori = (e) => {
+    // Empêcher le clic de se propager à la div parent (qui ouvre la modal)
+    e.stopPropagation();
     let newFavoris;
     if (favori) {
-      newFavoris = favorisStockés.filter((id) => id !== logement.id); // Retirer le favori
+      newFavoris = favorisStockés.filter((id) => id !== logement.id);
     } else {
-      newFavoris = [...favorisStockés, logement.id]; // Ajouter le favori
+      newFavoris = [...favorisStockés, logement.id];
     }
-
-    localStorage.setItem("favoris", JSON.stringify(newFavoris)); // Sauvegarde dans localStorage
+    localStorage.setItem("favoris", JSON.stringify(newFavoris));
     setFavori(!favori);
   };
 
@@ -35,25 +37,28 @@ function LogementCard({ logement }) {
   };
 
   return (
-    <div className="logement">
+    <div className="logement" onClick={() => openModal(logement)}>
       <button type="button" className="favori-btn" onClick={toggleFavori}>
-        {favori ? "❤️" : "🤍"}
+        {/* {favori ? "❤️" : "☠"} */}
+        <p className={`Fav ${favori ? "active" : ""}`}>☠</p>
       </button>
       <div className="logement-image">
         <img src={images[currentImageIndex]} alt={logement.nom} />
         <div className="navigation">
           <button type="button" onClick={prevImage} className="nav-btn prev">
-            &#8592;
+            ﹝
           </button>
           <button type="button" onClick={nextImage} className="nav-btn next">
-            &#8594;
+            ﹞
           </button>
         </div>
       </div>
-      <h2>{logement.nom}</h2>
-      <p>{logement.type}</p>
-      <p>{logement.prix} €</p>
-      <p>{logement.date}</p>
+      <div className="text-card">
+        <h4>{logement.nom}</h4>
+        <p>{logement.type}</p>
+        <p>{logement.prix} €</p>
+        <p>{logement.date}</p>
+      </div>
     </div>
   );
 }
@@ -282,6 +287,16 @@ function Tableaux({ filtreActif }) {
     },
   ];
 
+  const [selectedLogement, setSelectedLogement] = useState(null);
+
+  const openModal = (logement) => {
+    setSelectedLogement(logement);
+  };
+
+  const closeModal = () => {
+    setSelectedLogement(null);
+  };
+
   const logementsFiltres =
     filtreActif === "Tous"
       ? logements
@@ -292,12 +307,20 @@ function Tableaux({ filtreActif }) {
       <div className="card">
         {logementsFiltres.length > 0 ? (
           logementsFiltres.map((logement) => (
-            <LogementCard key={logement.id} logement={logement} />
+            // Assurez-vous de transmettre openModal à vos LogementCard
+            <LogementCard
+              key={logement.id}
+              logement={logement}
+              openModal={openModal}
+            />
           ))
         ) : (
           <p>Aucun logement ne correspond à ce filtre.</p>
         )}
       </div>
+      {selectedLogement && (
+        <Modal logement={selectedLogement} closeModal={closeModal} />
+      )}
     </div>
   );
 }

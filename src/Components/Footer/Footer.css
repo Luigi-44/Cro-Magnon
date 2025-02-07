@@ -1,23 +1,45 @@
 .footer {
   background-color: var(--secondary-color);
-  padding: 5rem 20rem;
+
+  .Parchemin {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    margin-left: 15%;
+    width: 80rem;
+    height: 50rem;
+    box-shadow: none;
+    border: none;
+  }
 
   h2 {
+    position: relative;
+    bottom: 40rem;
     text-align: center;
     margin-bottom: 7rem;
+    margin-left: 10px;
   }
 
   img {
-    width: 40rem;
-    height: 30rem;
+    margin-left: 22rem;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 20px;
+    border: solid 2px rgba(2, 2, 2, 0.822);
+    box-shadow: 0px 0px 50px 20px rgb(2, 2, 2);
   }
 
   .form {
+    position: relative;
+    bottom: 45rem;
     display: flex;
     gap: 2rem;
     padding: 5rem;
 
     .card {
+      border-radius: (àù);
       h3 {
         text-align: center;
         margin-bottom: 3rem;
@@ -28,9 +50,9 @@
         margin-bottom: 2rem;
         font-weight: 100;
         font-size: 0.8rem;
-        text-align: start;
         font-style: italic;
         margin-left: 50px;
+        max-width: 40rem;
       }
 
       ul {
@@ -44,6 +66,7 @@
           font-weight: 100;
           font-size: 0.8rem;
           font-style: italic;
+          max-width: 40rem;
         }
       }
     }
@@ -52,5 +75,6 @@
   .footer-container {
     text-align: center;
     font-size: 0.7rem;
+    margin-top: -500px;
   }
 }

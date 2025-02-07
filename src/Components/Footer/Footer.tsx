@@ -1,10 +1,12 @@
 import "./Footer.css";
 import rdv from "../../assets/rdv.png";
+import png1 from "../../assets/test.png";
 
 function Footer() {
   return (
     <>
       <div className="footer">
+        <img className="Parchemin" src={png1} alt="" />
         <h2>🌄 Retrouvez-nous au Cœur de l'Âge de Pierre 🏕️</h2>
         <div className="form">
           <img src={rdv} alt="Point de RDV" />
