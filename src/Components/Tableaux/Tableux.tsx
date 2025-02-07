@@ -26,18 +26,20 @@ function LogementCard({ logement, openModal }) {
     setFavori(!favori);
   };
 
-  const nextImage = () => {
+  const nextImage = (e) => {
+    e.stopPropagation();
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const prevImage = () => {
+  const prevImage = (e) => {
+    e.stopPropagation();
     setCurrentImageIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
 
   return (
-    <div className="logement" onClick={() => openModal(logement)}>
+    <div className="logement" onClick={(e) => openModal(logement)}>
       <button type="button" className="favori-btn" onClick={toggleFavori}>
         {/* {favori ? "❤️" : "☠"} */}
         <p className={`Fav ${favori ? "active" : ""}`}>☠</p>
@@ -45,10 +47,18 @@ function LogementCard({ logement, openModal }) {
       <div className="logement-image">
         <img src={images[currentImageIndex]} alt={logement.nom} />
         <div className="navigation">
-          <button type="button" onClick={prevImage} className="nav-btn prev">
+          <button
+            type="button"
+            onClick={(e) => prevImage(e)}
+            className="nav-btn prev"
+          >
             ﹝
           </button>
-          <button type="button" onClick={nextImage} className="nav-btn next">
+          <button
+            type="button"
+            onClick={(e) => nextImage(e)}
+            className="nav-btn next"
+          >
             ﹞
           </button>
         </div>
