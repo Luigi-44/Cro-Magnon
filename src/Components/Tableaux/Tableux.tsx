@@ -66,7 +66,7 @@ function LogementCard({ logement, openModal }) {
       <div className="text-card">
         <h4>{logement.nom}</h4>
         <p>{logement.type}</p>
-        <p>{logement.prix} €</p>
+        <p>{logement.prix} ₤</p>
         <p>{logement.date}</p>
       </div>
     </div>
@@ -297,12 +297,14 @@ function Tableaux({ filtreActif }) {
     },
   ];
 
+  const [rbnb, setrbnb] = useState([]);
+
   useEffect(() => {
-    fetch("")
+    fetch("http://localhost:3000/api/grottes")
       .then((response) => response.json())
       .then((data: AccessoryType[]) => {
         console.info(data);
-        setAccessories(data);
+        setrbnb(data);
       })
       .catch((error) => console.error("Erreur API :", error));
   }, []);

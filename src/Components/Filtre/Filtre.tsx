@@ -1,10 +1,9 @@
 import "./Filtre.css";
-import { gsap } from 'gsap';
+import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import { TextPlugin } from "gsap/TextPlugin";
 
 function Filtre({ filtreActif, setFiltreActif }) {
-
   gsap.registerPlugin(TextPlugin);
 
   const h2Ref = useRef(null);
@@ -28,7 +27,6 @@ function Filtre({ filtreActif, setFiltreActif }) {
     { id: 10, nom: "Accès par randonnée", icon: "fa-solid fa-hiking" },
     { id: 11, nom: "Environnement sauvage", icon: "fa-solid fa-tree" },
   ];
-
 
   return (
     <div className="filtre">
