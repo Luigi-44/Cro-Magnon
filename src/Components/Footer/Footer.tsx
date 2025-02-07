@@ -38,7 +38,7 @@ function Footer() {
         <div className="footer-container">
           <p>
             🔥 Forgé dans la pierre et le feu par{" "}
-            <span className="names">Lucie, Luidgie, Mohamed & William</span> 🔥
+            <span className="names">Lucie, Luigi, Mohamed & William</span> 🔥
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ const Modal = ({ logement, closeModal }) => {
         <div className="text">
           <h2>{logement.nom}</h2>
           <p>{logement.type}</p>
-          <p>{logement.prix} €</p>
+          <p>{logement.prix} ₤</p>
           <p>{logement.date}</p>
           <button type="button">Réserver</button>
         </div>
