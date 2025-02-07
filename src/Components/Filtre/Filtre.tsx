@@ -1,6 +1,20 @@
 import "./Filtre.css";
+import { gsap } from 'gsap';
+import { useEffect, useRef } from "react";
+import { TextPlugin } from "gsap/TextPlugin";
 
 function Filtre({ filtreActif, setFiltreActif }) {
+
+  gsap.registerPlugin(TextPlugin);
+
+  const h2Ref = useRef(null);
+  useEffect(() => {
+    gsap.to(h2Ref.current, {
+      duration: 2,
+      text: "Nos grottes à disposition",
+      delay: 2,
+    });
+  }, []);
   const filtres = [
     { id: 1, nom: "All", icon: "fa-solid fa-mountain" },
     { id: 2, nom: "Grotte en pierre", icon: "fa-solid fa-mountain" },
@@ -15,9 +29,10 @@ function Filtre({ filtreActif, setFiltreActif }) {
     { id: 11, nom: "Environnement sauvage", icon: "fa-solid fa-tree" },
   ];
 
+
   return (
     <div className="filtre">
-      <h2>Nos grottes à disposition</h2>
+      <h2 ref={h2Ref}>Our caves at your disposal</h2>
       <div className="filtre__conteneur">
         {filtres.map((filtre) => (
           <button
